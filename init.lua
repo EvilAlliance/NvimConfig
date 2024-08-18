@@ -2,6 +2,39 @@ require 'options'
 require 'keymaps'
 require 'autocmd'
 
+local add_cmd = vim.api.nvim_create_user_command
+
+add_cmd('Spacelen2', function()
+  vim.bo.expandtab = true --expand tabs to spaces
+  vim.bo.shiftwidth = 2 --visual mode >,<-key: number of spaces for indendation
+  vim.bo.tabstop = 2 --Tab key: number of spaces for indendation
+end, {})
+add_cmd('Spacelen4', function()
+  vim.bo.expandtab = true --expand tabs to spaces
+  vim.bo.shiftwidth = 4 --visual mode >,<-key: number of spaces for indendation
+  vim.bo.tabstop = 4 --Tab key: number of spaces for indendation
+end, {})
+add_cmd('Spacelen8', function()
+  vim.bo.expandtab = true --expand tabs to spaces
+  vim.bo.shiftwidth = 8 --visual mode >,<-key: number of spaces for indendation
+  vim.bo.tabstop = 8 --Tab key: number of spaces for indendation
+end, {})
+add_cmd('Tablen2', function()
+  vim.bo.expandtab = false --expand tabs to spaces
+  vim.bo.shiftwidth = 2 --visual mode >,<-key: number of spaces for indendation
+  vim.bo.tabstop = 2 --Tab key: number of spaces for indendation
+end, {})
+add_cmd('Tablen4', function()
+  vim.bo.expandtab = false --expand tabs to spaces
+  vim.bo.shiftwidth = 4 --visual mode >,<-key: number of spaces for indendation
+  vim.bo.tabstop = 4 --Tab key: number of spaces for indendation
+end, {})
+add_cmd('Tablen8', function()
+  vim.bo.expandtab = false --expand tabs to spaces
+  vim.bo.shiftwidth = 8 --visual mode >,<-key: number of spaces for indendation
+  vim.bo.tabstop = 8 --Tab key: number of spaces for indendation
+end, {})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
