@@ -35,3 +35,5 @@ vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Move focus to the upper win
 
 --Explore
 vim.keymap.set('n', '<C-a>', ':Explore<enter>', { desc = 'Move focus to the left window' })
+
+vim.keymap.set({'n', 'i', 'v'}, '<C-s>', '<esc><esc>:w<enter><esc>', { desc = 'Move focus to the left window' })
