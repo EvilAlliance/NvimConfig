@@ -35,8 +35,8 @@ return {
                 annotate = false,
             },
             mappings = {
-                next = 'mj',
-                prev = 'mk',
+                next = '<A-n>',
+                prev = '<A-S-N>',
                 preview = 'm:',
                 delete_line = 'dml',
             },
