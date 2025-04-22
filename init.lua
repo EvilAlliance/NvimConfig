@@ -1,5 +1,6 @@
 require 'options'
 require 'keymaps'
+require 'Compile'
 require 'autocmd'
 
 local add_cmd = vim.api.nvim_create_user_command

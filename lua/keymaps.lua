@@ -41,12 +41,10 @@ vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', '<esc><esc>:w<enter><esc>', { desc = 
 --BookMark
 vim.keymap.set('n', 'mm', ':lua require("bookmarks").bookmark_toggle()<enter>', { desc = 'Toogle Mark' })
 vim.keymap.set('n', 'mi', ':lua require("bookmarks").bookmark_ann()<enter>', { desc = 'Add or Edit Current Mark' })
-vim.keymap.set('n', 'mc', ':lua require("bookmarks").bookmark_clean()<enter>',
-    { desc = 'Clean all marks in the local buffer' })
+vim.keymap.set('n', 'mc', ':lua require("bookmarks").bookmark_clean()<enter>', { desc = 'Clean all marks in the local buffer' })
 vim.keymap.set('n', '<M-n>', ':lua require("bookmarks").bookmark_next()<enter>', { desc = 'Jump Next' })
 vim.keymap.set('n', '<M-N>', ':lua require("bookmarks").bookmark_prev()<enter>', { desc = 'Jump Prev' })
 vim.keymap.set('n', 'ml', ':lua require("bookmarks").bookmark_list()<enter>', { desc = 'List Marks' })
 vim.keymap.set('n', 'mx', ':lua require("bookmarks").bookmark_clear_all()<enter>', { desc = 'Clear All Marks' })
 
-vim.keymap.set('n', '<leader>sm', ":lua require('telescope').extensions.bookmarks.list()<enter>",
-    { desc = 'List All Marks' })
+vim.keymap.set('n', '<leader>sm', ":lua require('telescope').extensions.bookmarks.list()<enter>", { desc = 'List All Marks' })
