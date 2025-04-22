@@ -31,7 +31,14 @@ return {
         'folke/todo-comments.nvim',
         event = 'VimEnter',
         dependencies = { 'nvim-lua/plenary.nvim' },
-        opts = { signs = false },
+        opts = {
+            signs = true, -- show icons in the signs column
+            sign_priority = 8, -- sign priority
+
+            keywords = {
+                CLEANUP = { icon = '󰑎', color = '#ff5a00' },
+            },
+        },
     },
     { -- Collection of various small independent plugins/modules
         'echasnovski/mini.nvim',
