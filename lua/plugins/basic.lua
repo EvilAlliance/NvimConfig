@@ -14,16 +14,6 @@ return {
                 { '<leader>w', group = '[W]orkspace' },
                 { '<leader>t', group = '[T]oggle' },
                 { '<leader>g', group = '[G]it Hunk', mode = { 'n', 'v' } },
-                {
-                    '<leader>fm',
-                    ":lua require('telescope').extensions.marks_nvim.marks_list_buf()<cr>",
-                    desc = 'List Marks',
-                }, --[[ list buf ]]
-                {
-                    '<leader>fa',
-                    ":lua require('telescope').extensions.marks_nvim.marks_list_all()<cr>",
-                    desc = 'List All Marks',
-                },
             }
         end,
     },
