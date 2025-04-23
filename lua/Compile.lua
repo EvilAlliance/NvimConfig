@@ -10,7 +10,17 @@ vim.api.nvim_create_autocmd('QuickFixCmdPost', {
     end,
 })
 
-vim.api.nvim_create_user_command('Compile', function()
+vim.api.nvim_create_user_command('ChangeCommand', function()
+    local input = vim.fn.input('Set makeprg: ', vim.o.makeprg.sub(vim.o.makeprg, 0, vim.o.makeprg.len(vim.o.makeprg) - 2))
+
+    if input == '' then
+        print 'Cancelled.'
+        return
+    end
+    vim.o.makeprg = input
+end, {})
+
+vim.api.nvim_create_user_command('RunCommand', function()
     local makeprg = vim.o.makeprg
 
     -- If makeprg is not set or empty
@@ -26,10 +36,10 @@ vim.api.nvim_create_user_command('Compile', function()
 
     -- Run :make
     vim.cmd 'make'
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<enter>', true, false, true), 'n', false)
 end, {})
 
-vim.keymap.set({ 'i', 'n', 'v' }, '<C-i>', ':Compile<enter>', { desc = 'Compile Program' })
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-i>', ':RunCommand<enter>', { desc = 'Run Command' })
+vim.keymap.set({ 'n' }, ';', ':ChangeCommand<enter>', { desc = 'Change Command' })
 
 vim.keymap.set('n', ']e', '<Cmd>try | cnext | catch | cfirst | catch | endtry<CR><CR>', { desc = 'Next Error' })
 vim.keymap.set('n', '[e', '<Cmd>try | cprevious | catch | clast | catch | endtry<CR><CR>', { desc = 'Prev Error' })
