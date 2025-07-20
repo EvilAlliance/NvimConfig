@@ -26,7 +26,14 @@ return {
             sign_priority = 8, -- sign priority
 
             keywords = {
+                TODO = { icon = ' ', color = 'info' },
+                HACK = { icon = ' ', color = 'warning' },
+                WARN = { icon = ' ', color = 'warning', alt = { 'WARNING', 'XXX' } },
+                PERF = { icon = ' ', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' } },
+                NOTE = { icon = ' ', color = 'hint', alt = { 'INFO' } },
+                TEST = { icon = '⏲ ', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED' } },
                 CLEANUP = { icon = '󰑎', color = '#ff5a00' },
+                IMPORTANT = { icon = '', color = '#b3390a' },
             },
         },
     },
@@ -134,9 +141,26 @@ return {
                     -- By setting the 'default' entry below, you can control which nodes you want to
                     -- appear in the context window.
                     default = {
-                        '*',
+                        'class',
+                        'function',
+                        'method',
                     },
                 },
+            }
+        end,
+    },
+    {
+        'MagicDuck/grug-far.nvim',
+        -- Note (lazy loading): grug-far.lua defers all it's requires so it's lazy by default
+        -- additional lazy config to defer loading is not really needed...
+        config = function()
+            -- optional setup call to override plugin options
+            -- alternatively you can set options with vim.g.grug_far = { ... }
+            require('grug-far').setup {
+                -- options, see Configuration section below
+                -- there are no required options atm
+                -- engine = 'ripgrep' is default, but 'astgrep' or 'astgrep-rules' can
+                -- be specified
             }
         end,
     },
