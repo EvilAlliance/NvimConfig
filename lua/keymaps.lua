@@ -48,3 +48,8 @@ vim.keymap.set('n', 'ml', ':lua require("bookmarks").bookmark_list()<enter>', { 
 vim.keymap.set('n', 'mx', ':lua require("bookmarks").bookmark_clear_all()<enter>', { desc = 'Clear All Marks' })
 
 vim.keymap.set('n', '<leader>sm', ":lua require('telescope').extensions.bookmarks.list()<enter>", { desc = 'List All Marks' })
+
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { desc = 'move line up(n)' })
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { desc = 'move line down(n)' })
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { desc = 'move line up(v)' })
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'move line down(v)' })
