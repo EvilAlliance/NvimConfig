@@ -32,19 +32,6 @@ return {
             local lspconfig = require 'lspconfig'
             local configs = require 'lspconfig.configs'
 
-            if not configs.zigscient then
-                configs.zigscient = {
-                    default_config = {
-                        cmd = { vim.fn.expand '~/.local/bin/thirdparty/zigscient-x86_64-linux' },
-                        filetypes = { 'zig' },
-                        root_dir = lspconfig.util.root_pattern('build.zig.zon', 'build.zig', '.git'),
-                        settings = {},
-                    },
-                }
-            end
-
-            lspconfig.zigscient.setup {}
-
             -- Brief aside: **What is LSP?**
             --
             -- LSP is an initialism you've probably heard, but might not understand what it is.

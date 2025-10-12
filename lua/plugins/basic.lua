@@ -32,7 +32,7 @@ return {
                 PERF = { icon = ' ', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' } },
                 NOTE = { icon = ' ', color = 'hint', alt = { 'INFO' } },
                 TEST = { icon = '⏲ ', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED' } },
-                CLEANUP = { icon = '󰑎', color = '#ff5a00' },
+                CLEANUP = { icon = '󰑎', color = '#ff5a00', alt = { 'CLEAN' } },
                 IMPORTANT = { icon = '', color = '#b3390a' },
             },
         },
