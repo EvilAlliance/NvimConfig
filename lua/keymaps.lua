@@ -44,6 +44,7 @@ vim.keymap.set('n', 'mi', ':lua require("bookmarks").bookmark_ann()<enter>', { d
 vim.keymap.set('n', 'mc', ':lua require("bookmarks").bookmark_clean()<enter>', { desc = 'Clean all marks in the local buffer' })
 vim.keymap.set('n', '<M-n>', ':lua require("bookmarks").bookmark_next()<enter>', { desc = 'Jump Next' })
 vim.keymap.set('n', '<M-N>', ':lua require("bookmarks").bookmark_prev()<enter>', { desc = 'Jump Prev' })
+vim.keymap.set('n', '<M-m>', ':lua require("bookmarks").bookmark_prev()<enter>', { desc = 'Jump Prev' })
 vim.keymap.set('n', 'ml', ':lua require("bookmarks").bookmark_list()<enter>', { desc = 'List Marks' })
 vim.keymap.set('n', 'mx', ':lua require("bookmarks").bookmark_clear_all()<enter>', { desc = 'Clear All Marks' })
 
