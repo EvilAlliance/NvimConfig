@@ -34,6 +34,7 @@ return {
                 TEST = { icon = '⏲ ', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED' } },
                 CLEANUP = { icon = '󰑎', color = '#ff5a00', alt = { 'CLEAN' } },
                 IMPORTANT = { icon = '', color = '#b3390a' },
+                SAFETY = { icon = '', color = '#FF8000' },
             },
         },
     },
