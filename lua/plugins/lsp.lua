@@ -32,6 +32,19 @@ return {
             local lspconfig = require 'lspconfig'
             local configs = require 'lspconfig.configs'
 
+            if not configs.zls then
+                configs.zls = {
+                    default_config = {
+                        cmd = { vim.fn.expand '~/Project/zls/zig-out/bin/zls' },
+                        filetypes = { 'zig' },
+                        root_dir = lspconfig.util.root_pattern('build.zig.zon', 'build.zig', '.git'),
+                        settings = {},
+                    },
+                }
+            end
+
+            lspconfig.zls.setup {}
+
             -- Brief aside: **What is LSP?**
             --
             -- LSP is an initialism you've probably heard, but might not understand what it is.
