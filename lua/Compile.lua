@@ -46,7 +46,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
 vim.api.nvim_create_autocmd('QuickFixCmdPost', {
     callback = function()
         if #vim.fn.getqflist() > 0 then
-            vim.cmd 'copen'
+            vim.cmd 'copen | wincmd p'
         else
             vim.cmd 'cclose'
         end
