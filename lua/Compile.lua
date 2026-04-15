@@ -44,12 +44,11 @@ vim.api.nvim_create_autocmd('BufEnter', {
 
 -- Auto-open quickfix window if errors exist after :make
 vim.api.nvim_create_autocmd('QuickFixCmdPost', {
-    pattern = { 'make' },
     callback = function()
         if #vim.fn.getqflist() > 0 then
-            vim.cmd 'Trouble qflist open'
+            vim.cmd 'copen'
         else
-            vim.cmd 'Trouble qflist close'
+            vim.cmd 'cclose'
         end
     end,
 })
