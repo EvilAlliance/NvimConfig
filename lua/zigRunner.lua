@@ -16,4 +16,8 @@ function M.deinit()
     uv.fs_event_stop(M.ev)
 end
 
+if vim.fs.root(0, 'build.zig') then
+    M.init()
+end
+
 return M
