@@ -42,17 +42,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
     end,
 })
 
--- Auto-open quickfix window if errors exist after :make
-vim.api.nvim_create_autocmd('QuickFixCmdPost', {
-    callback = function()
-        if #vim.fn.getqflist() > 0 then
-            vim.cmd 'copen | wincmd p'
-        else
-            vim.cmd 'cclose'
-        end
-    end,
-})
-
 -- Command to change makeprg and persist it
 vim.api.nvim_create_user_command('ChangeCommand', function()
     local current = vim.o.makeprg
