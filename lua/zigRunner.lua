@@ -37,8 +37,6 @@ local function strip_ansi(s)
 end
 
 local function notify_trouble()
-    -- Fire the event Trouble's qflist view listens on so its auto_open /
-    -- auto_close reacts to the background update.
     vim.api.nvim_exec_autocmds('QuickFixCmdPost', { pattern = 'make' })
 end
 
@@ -64,10 +62,6 @@ end
 
 local function consume(raw)
     if raw:find(PROGRESS_MARK, 1, true) then
-        -- A progress frame, never real output. zig keeps redrawing a
-        -- `watching N directories...` frame while idle, so only a *compile*
-        -- frame marks a new build -- and on its first one we wipe the stale
-        -- results so the quickfix doesn't show outdated errors mid-build.
         if raw:find('watching', 1, true) then
             building = false
         elseif not building then
@@ -78,7 +72,6 @@ local function consume(raw)
         return
     end
 
-    -- Real build output (step tree / diagnostics / summary); frames excluded.
     report[#report + 1] = strip_ansi(raw)
 
     if report[#report]:match '^Build Summary:' then
