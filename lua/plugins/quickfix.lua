@@ -1,19 +1,9 @@
 return {
     'folke/trouble.nvim',
-    opts = {
-        modes = {
-            -- Let the qflist view open/close/refresh itself from the quickfix
-            -- list (e.g. the zig watcher) instead of driving it manually.
-            qflist = {
-                auto_open = true,
-                auto_close = true,
-            },
-        },
-    },
+    opts = {},
+    -- The zig watcher drives the native quickfix window itself, so Trouble only
+    -- needs to load on demand for its diagnostics/symbols/lsp views.
     cmd = 'Trouble',
-    -- Load after startup so the auto_open qflist view is listening for the
-    -- zig watcher's quickfix updates, not only when :Trouble is first run.
-    event = 'VeryLazy',
     keys = {
         {
             '<leader>xx',
