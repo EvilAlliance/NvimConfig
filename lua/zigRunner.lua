@@ -36,14 +36,15 @@ end
 -- parse as invalid entries, so a successful build leaves nothing to show -- and
 -- open without stealing focus from the window you're editing in.
 local function refresh_window()
-    local valid = 0
+    local has_valid = false
     for _, item in ipairs(vim.fn.getqflist()) do
         if item.valid == 1 then
-            valid = valid + 1
+            has_valid = true
+            break
         end
     end
 
-    if valid > 0 then
+    if has_valid then
         local win = vim.api.nvim_get_current_win()
         vim.cmd 'copen'
         if vim.api.nvim_win_is_valid(win) then
